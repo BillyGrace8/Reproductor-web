@@ -1,7 +1,7 @@
 {
   "name": "MUSIC Player",
   "short_name": "MUSIC",
-  "start_url": "./Reproductor musica.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#4EAFD9",
