@@ -1,8 +1,8 @@
 {
   "name": "MUSIC Player",
   "short_name": "MUSIC",
-  "start_url": "./Reproductor-web/index.html",
-  "scope": "./Reproductor-web/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#121212",
   "theme_color": "#4EAFD9",
