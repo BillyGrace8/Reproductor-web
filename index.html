@@ -34,7 +34,6 @@
       overflow: hidden;
     }
 
-    /* CONTENIDOR PRINCIPAL */
     .app-container {
       display: flex;
       flex-direction: column;
@@ -45,15 +44,21 @@
       background-color: var(--bg-color);
     }
 
-    /* SECCIÓ SUPERIOR / ESQUERRA: REPRODUCTOR */
+    /* REPRODUCTOR SUPERIOR */
     .player-section {
-      padding: 20px;
+      padding: 16px 20px 10px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       background: linear-gradient(180deg, #1f2d34 0%, var(--bg-color) 100%);
       flex-shrink: 0;
+    }
+
+    .app-title {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
     }
 
     .album-art {
@@ -62,9 +67,8 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,0.7);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       background-color: var(--card-bg);
-      transition: transform 0.3s ease;
     }
 
     .album-art img {
@@ -75,7 +79,7 @@
 
     .track-info {
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       width: 100%;
       max-width: 320px;
     }
@@ -92,7 +96,7 @@
     .track-info p {
       font-size: 13px;
       color: var(--text-secondary);
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     /* BARRA DE PROGRÉS */
@@ -110,7 +114,6 @@
       border-radius: 2px;
       background: #3e3e3e;
       outline: none;
-      cursor: pointer;
     }
 
     .progress-bar::-webkit-slider-thumb {
@@ -128,10 +131,10 @@
       justify-content: space-between;
       font-size: 11px;
       color: var(--text-secondary);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    /* CONTROLS */
+    /* BOTONS AMB ICONES SVG */
     .controls {
       display: flex;
       align-items: center;
@@ -143,20 +146,22 @@
     .btn {
       background: none;
       border: none;
-      color: var(--text-secondary);
-      font-size: 20px;
       cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      transition: background 0.2s, color 0.2s;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .btn:hover {
-      color: var(--text-main);
+    .btn svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--text-secondary);
+      transition: fill 0.2s;
     }
 
-    .btn.active {
-      color: var(--accent-color);
+    .btn.active svg {
+      fill: var(--accent-color);
     }
 
     .btn-play {
@@ -164,53 +169,62 @@
       height: 52px;
       border-radius: 50%;
       background-color: var(--accent-color);
-      color: #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
     }
 
-    .btn-play:hover {
-      transform: scale(1.05);
-      background-color: #5cc2ed;
+    .btn-play svg {
+      fill: #000000;
+      width: 24px;
+      height: 24px;
     }
 
-    /* SECCIÓ INFERIOR / DRETA: LLISTA DE CANÇONS */
+    /* LLISTA INFERIOR I BOTONS DE SELECCIÓ DE LLISTA */
     .playlist-section {
       flex: 1;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      padding: 15px 20px;
+      padding: 12px 20px;
       border-top: 1px solid var(--border-color);
       background-color: var(--bg-color);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
     }
 
     .playlist-selector {
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
       flex-shrink: 0;
     }
 
+    /* SOLUCIÓ AL TEXT INVISIBLE DE LES LLISTES */
     .tab-btn {
       background-color: var(--card-bg);
-      color: var(--text-main);
+      color: var(--text-main) !important;
       border: 1px solid var(--border-color);
       padding: 8px 16px;
       border-radius: 20px;
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 600;
       white-space: nowrap;
       cursor: pointer;
     }
 
     .tab-btn.active {
       background-color: var(--accent-color);
-      color: #000;
-      font-weight: bold;
+      color: #000000 !important; /* Text negre ben visible quan el botó és blau */
       border-color: var(--accent-color);
     }
 
@@ -231,11 +245,6 @@
       border-radius: 8px;
       background-color: var(--card-bg);
       cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .song-item:hover {
-      background-color: var(--card-hover);
     }
 
     .song-item.active {
@@ -264,17 +273,14 @@
       color: var(--text-secondary);
     }
 
-    /* ========================================================= */
-    /* ADAPTACIÓ PER A ORDINADOR / PANTALLES GRANS (min-width: 768px) */
-    /* ========================================================= */
+    /* ADAPTACIÓ PER A ORDINADOR */
     @media (min-width: 768px) {
       .app-container {
-        flex-direction: row; /* Panells un al costat de l'altre */
+        flex-direction: row;
         max-width: 1000px;
         height: 85vh;
         margin: 7.5vh auto;
         border-radius: 16px;
-        overflow: hidden;
         border: 1px solid var(--border-color);
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
       }
@@ -283,27 +289,17 @@
         flex: 1;
         padding: 40px;
         border-right: 1px solid var(--border-color);
-        background: linear-gradient(180deg, #1b2830 0%, #121212 100%);
       }
 
       .album-art {
-        width: 240px;
-        height: 240px;
-        margin-bottom: 25px;
-      }
-
-      .track-info h2 {
-        font-size: 22px;
+        width: 220px;
+        height: 220px;
       }
 
       .playlist-section {
         flex: 1.2;
         padding: 30px;
         border-top: none;
-      }
-
-      .song-item {
-        padding: 14px 18px;
       }
     }
   </style>
@@ -312,8 +308,9 @@
 
   <div class="app-container">
     
-    <!-- Reproductor (A dalt en Mòbil, a l'Esquerra en PC) -->
     <div class="player-section">
+      <div class="app-title">MUSIC</div>
+
       <div class="album-art">
         <img src="logo.png" alt="Portada">
       </div>
@@ -332,17 +329,29 @@
       </div>
 
       <div class="controls">
-        <button class="btn" id="shuffle-btn" title="Aleatori">🔀</button>
-        <button class="btn" id="prev-btn" title="Anterior">⏮</button>
-        <button class="btn btn-play" id="play-btn" title="Reproduir / Pausar">▶</button>
-        <button class="btn" id="next-btn" title="Següent">⏭</button>
-        <button class="btn" id="repeat-btn" title="Repetir">🔁</button>
+        <button class="btn" id="shuffle-btn" title="Aleatori">
+          <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.45 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+        </button>
+        <button class="btn" id="prev-btn" title="Anterior">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="btn btn-play" id="play-btn" title="Reproduir / Pausar">
+          <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="btn" id="next-btn" title="Següent">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+        <button class="btn" id="repeat-btn" title="Repetir">
+          <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v3z"/></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Llista de Cançons (A baix en Mòbil, a la Dreta en PC) -->
     <div class="playlist-section">
+      <div class="section-label">Llistes</div>
       <div class="playlist-selector" id="playlist-selector"></div>
+
+      <div class="section-label">Cançons</div>
       <ul class="song-list" id="song-list"></ul>
     </div>
 
@@ -373,6 +382,7 @@
 
     const audioPlayer = document.getElementById("audio-player");
     const playBtn = document.getElementById("play-btn");
+    const playIcon = document.getElementById("play-icon");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
     const shuffleBtn = document.getElementById("shuffle-btn");
@@ -458,13 +468,13 @@
     function playSong() {
       isPlaying = true;
       audioPlayer.play().catch(() => {});
-      playBtn.textContent = "⏸";
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'; // Icona Pausa
     }
 
     function pauseSong() {
       isPlaying = false;
       audioPlayer.pause();
-      playBtn.textContent = "▶";
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Icona Play
     }
 
     function nextSong() {
