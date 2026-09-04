@@ -2,7 +2,7 @@ const CACHE_NAME = 'music-app-v2';
 
 const assetsToCache = [
   './',
-  './Reproductor musica.html',
+  './index.html',
   './manifest.json',
   './logo.png'
 ];
