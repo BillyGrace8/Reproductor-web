@@ -1,10 +1,10 @@
 const CACHE_NAME = 'music-app-v2';
 
 const assetsToCache = [
-  './Reproductor-web/',
-  './Reproductor-web/index.html',
-  './Reproductor-web/manifest.json',
-  './Reproductor-web/logo.png'
+  './',
+  './index.html',
+  './manifest.json',
+  './logo.png'
 ];
 
 self.addEventListener('install', (event) => {
