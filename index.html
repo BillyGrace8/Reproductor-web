@@ -154,14 +154,15 @@
     }
 
     .btn svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--text-secondary);
-      transition: fill 0.2s;
+     width: 22px;
+     height: 22px;
+     fill: var(--text-secondary);
+     transition: fill 0.2s ease, transform 0.2s ease;
     }
 
     .btn.active svg {
-      fill: var(--accent-color);
+     fill: var(--accent-color) !important;
+     transform: scale(1.1); /* Li dóna un petit efecte de relleu en activar-se */
     }
 
     .btn-play {
