@@ -45,14 +45,31 @@
     }
 
     /* REPRODUCTOR SUPERIOR */
+    /* REPRODUCTOR (Estils generals i mòbil) */
     .player-section {
       padding: 16px 20px 10px 20px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center;       /* Centra horitzontalment */
+      justify-content: center;  /* Centra verticalment */
+      text-align: center;
       background: linear-gradient(180deg, #1f2d34 0%, var(--bg-color) 100%);
       flex-shrink: 0;
+      width: 100%;
     }
+
+    /* REPRODUCTOR EN PC (Ajust per mantenir el centrat perfecte) */
+    @media (min-width: 768px) {
+    .player-section {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;       /* Assegura el centrat horitzontal en PC */
+      justify-content: center;  /* Assegura el centrat vertical en PC */
+      border-right: 1px solid var(--border-color);
+    }
+  }
 
     .app-title {
       font-size: 16px;
